@@ -1,0 +1,18 @@
+!!! XML
+!!!
+%html
+  %head
+    %title MineWeb
+    = stylesheet_link_tag 'reset', '960', 'text', 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+  %body
+    .container_12
+      #header
+        %h1 BlockHeaven BlockWeb v2
+        = link_to 'Block changes', block_changes_path
+        %div{:style => 'clear: left;'}
+      = yield
+      
+      %hr
+      = "Processed in #{((Time.now.to_f - @request_started_time.to_f) * 1000).to_i} ms"
